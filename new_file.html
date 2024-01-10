@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小问卷</title>
+		<style type="text/css">
+			body{
+				background-image: url("js/3.png");
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-color:bisque;
+				width:640px;
+				height:1030px;
+			}
+			.index{
+				margin: auto;
+				width:920px;
+				background-color: none;
+				box-shadow:10px 10px 15px none;
+				margin-top:50px;
+				margin-left: 200px;
+			}
+			h1{
+				font: weight 700px;
+				font-size: 70px;
+				font-style: italic;
+				margin-left: 500px;
+				color: black;
+			}
+			form{
+			    padding-left: 100px;
+				line-height:180%;
+			}
+            input{
+				border-color: aqua;
+				border-top-width:0px;
+				border-right-width:0px;
+				border-bottom-width:0px;
+				border-left-width:0px;
+			}
+            #btn{
+				background-color: #FFA501;
+				color:white;
+				padding:5px 10px;
+				margin-left:320px;
+				margin-top:16px;
+				margin-bottom: 20px;
+			}
+			#surveyForm{
+				width: 680px;
+				height: 500px;	
+			}
+			#myButton{
+				border-radius: 300px;
+				border:4px solid #161823 ;
+				background-color:#fffbf0;
+				font-size: 30px;
+				font-family:sans-serif;
+				color:#50616d ;
+				margin-top: 110px;
+				margin-left: 400px;
+			}				
+		</style>
+	</head>
+	<body>
+		<div class="index">
+			<h1>知识问答</h1>			
+			<form method="post" action="https://cn.bing.com/" id="surveyForm" onsubmit="return validateForm()">				
+					<li>雪虎</li>					
+					<p>雪虎的颜色由于什么影响？</p>
+					<input type="radio" name="q1" value="A"><span style="margin_left:5px;color:#009688">A.遗传因素</span>
+					<input type="radio" name="q1" value="B"><span style="margin_left:5px;color:#009688">B.环境因素</span>
+					<input type="radio" name="q1" value="C"><span style="margin_left:5px;color:#009688">C.饮食因素</span>
+					<input type="radio" name="q1" value="D"><span style="margin_left:5px;color:#009688">D.年龄因素</span>
+					<p>雪虎的花纹是怎么样的？</p>
+					<input type="radio" name="q2" value="A"><span style="margin_left:5px;color:#009688">A.条纹</span>
+					<input type="radio" name="q2" value="B"><span style="margin_left:5px;color:#009688">B.斑点</span>
+					<input type="radio" name="q2" value="C"><span style="margin_left:5px;color:#009688">C.花纹</span>
+					<input type="radio" name="q2" value="D"><span style="margin_left:5px;color:#009688">D.网纹</span>
+					<p>下面说法正确的是？</p>
+					<input type="radio" name="q3" value="A"><span style="margin_left:5px;color:#009688">A.雪虎是独特的亚种</span>
+					<input type="radio" name="q3" value="B"><span style="margin_left:5px;color:#009688">B.雪虎有更多黑纹</span>
+					<input type="radio" name="q3" value="C"><span style="margin_left:5px;color:#009688">C.雪虎不是白化病导致</span>
+					<input type="radio" name="q3" value="D"><span style="margin_left:5px;color:#009688">D.白虎几乎全白</span>
+					<p>雪虎的生存状况？</p>
+					<input type="radio" name="q4" value="A"><span style="margin_left:5px;color:#009688">A.濒危</span>
+					<input type="radio" name="q4" value="B"><span style="margin_left:5px;color:#009688">B.稀有</span>
+					<input type="radio" name="q4" value="C"><span style="margin_left:5px;color:#009688">C.丰富</span>
+					<input type="radio" name="q4" value="D"><span style="margin_left:5px;color:#009688">D.普通</span>
+				    <button id="myButton" >提交</button>
+				
+			</form>
+			
+		</div>
+		
+		<script>
+		        function validateForm() {
+		            var q1Answer = document.querySelector('input[name="q1"]:checked');
+		            var q2Answer = document.querySelector('input[name="q2"]:checked');
+		            var q3Answer = document.querySelector('input[name="q3"]:checked');
+					var q4Answer = document.querySelector('input[name="q4"]:checked');
+		
+		            if (!q1Answer || !q2Answer || !q3Answer||!q4Answer) {
+		                alert("请回答所有问题后再提交！");
+		                return false;
+		            }
+		
+		            var correctCount = 0;
+		            var incorrectAnswers = [];
+		
+		            if (q1Answer.value === "A") {
+		                correctCount++;
+		            } else {
+		                incorrectAnswers.push({
+		                    question: "雪虎的颜色由于什么影响？",
+		                    userAnswer: q1Answer.value,
+		                    correctAnswer: "A"
+		                });
+		            }
+		
+		            if (q2Answer.value === "A") {
+		                correctCount++;
+		            } else {
+		                incorrectAnswers.push({
+		                    question: "雪虎的花纹是什么样的？",
+		                    userAnswer: q2Answer.value,
+		                    correctAnswer: "A"
+		                });
+		            }
+		
+		            if (q3Answer.value === "C") {
+		                correctCount++;
+		            } else {
+		                incorrectAnswers.push({
+		                    question: "雪虎喜欢吃什么？",
+		                    userAnswer: q3Answer.value,
+		                    correctAnswer: "C"
+		                });
+		            }
+					
+					if (q4Answer.value === "B") {
+					    correctCount++;
+					} else {
+					    incorrectAnswers.push({
+					        question: "雪虎的生存状况？",
+					        userAnswer: q3Answer.value,
+					        correctAnswer: "B"
+					    });
+					}
+		            
+		            var result = "";
+		            if (correctCount === 4) {
+		                result = "恭喜您，答案全部正确！";
+		            } else if (correctCount > 0) {
+		                result = "部分答案正确，请再次确认。";
+		            } else {
+		                result = "很抱歉，答案均不正确。";
+		            }
+		
+		            if (incorrectAnswers.length > 0) {
+		                result += "\n以下是您选择错误的问题及答案：\n";
+		                incorrectAnswers.forEach(function (incorrect) {
+		                    result += incorrect.question + " 您选择的答案：" + incorrect.userAnswer + " 正确答案：" + incorrect.correctAnswer + "\n";
+		                });
+		            }
+		
+		            alert(result);
+		        }
+		    </script>
+</body>
+</html>

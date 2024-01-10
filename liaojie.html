@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>了解更多</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1f4037, #99f2c8); /* 添加了背景渐变色 */
+      color: #fff; /* 将文字颜色改为白色，以便在深色背景上看清楚 */
+    }
+    
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 20px;
+    }
+
+    p {
+      margin: 20px 0;
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #1f4037;
+      text-decoration: none;
+      transition: background-color 0.5s ease;
+    }
+
+    .button:hover {
+      background-color: #99f2c8;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      width: 60%;
+    }
+  .button, .dropdown {
+       display: inline-block;
+       margin: 20px 0;
+       padding: 10px 20px;
+       border-radius: 5px;
+       background-color: #fff;
+       color: #1f4037;
+       text-decoration: none;
+       transition: background-color 0.5s ease;
+     }
+ 
+     .dropdown {
+       display: none; /* 默认隐藏下拉框 */
+       position: absolute;
+       width: auto;
+       padding: 10px;
+       background: linear-gradient(to right, #1f4037, #99f2c8); /* 添加了渐变色 */
+       border-radius: 5px; /* 添加了圆角 */
+     }
+ 
+     .dropdown select {
+       background: transparent;
+       border: none;
+       color: #fff;
+       font-size: 1.1em;
+     }
+   </style>
+   <script>
+     function toggleDropdown() {
+       var dropdown = document.getElementById("dropdown");
+       dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+     }
+   </script>
+<body>
+  <div class="container">
+ <title>了解更多</title>
+  <!-- CSS部分保持不变 -->
+</head>
+<body>
+  <div class="container">
+    <h1>了解更多</h1>
+    <p>这里是关于雪虎的更多信息。你可以阅读以下内容，或者搜索你感兴趣的话题。</p>
+    <a href="#" class="button">🔍</a>
+    <input type="text" id="search" placeholder="搜索你感兴趣的话题(双击查看可参考)" list="suggestions">
+    <datalist id="suggestions">
+      <option value="与雪虎同样濒危灭绝的动物有哪些？">
+      <option value="了解其它濒危生物">
+      <option value="海洋动物">
+      <option value="“变异”带来的生物新奇观">
+    </datalist>
+  </div>
+</body>
+</html>

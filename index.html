@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #1f4037, #99f2c8); /* 添加了背景渐变色 */
+    }
+    
+    .container {
+      width: 680px;
+           margin-top: 0; 
+           margin-bottom: auto;
+           margin-left: auto;
+           margin-right: auto;
+           position: relative; 
+           color: #fff; 
+    }
+
+    .full-page-image {
+      width: 100%;
+      opacity: 0; /* 初始状态设为透明 */
+      transition: opacity 1s ease-in-out; /* 平滑渐入渐出过渡效果 */
+    }
+
+    .button-icon {
+      position: absolute;
+      bottom: 20px; /* 将按钮置于底部 20 像素的位置 */
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer; /* 鼠标悬停时显示为指示链接的光标 */
+      transition: transform 0.3s ease; /* 添加按钮的平滑过渡效果 */
+    }
+
+     .option-box {
+          width: 25%; /* 修改宽度 */
+          padding: 20px;
+          background-color: rgba(255, 255, 255, 0.7); /* 添加了半透明背景 */
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+          transition: background-color 0.5s ease;
+     }
+	 .options-container {
+	       display: flex; /* 使用 Flexbox 布局 */
+	            justify-content: space-between; /* 使元素之间的间距相等 */
+	            width: 90%; /* 增加宽度 */
+	            border-bottom: 2px solid #fff; /* 添加下边框 */
+	            padding-bottom: 20px; /* 添加下内边距 */
+	            margin: 0 auto; /* 居中对齐 */
+	       }
+	    }
+
+    .option-box:hover {
+      background-color: rgba(255, 255, 255, 0.9); /* 鼠标悬停时的背景颜色变化 */
+    }
+
+    /* 图片和选项的淡入动画效果 */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .fade-in-animation {
+      animation: fadeIn 1s ease-in-out;
+      animation-delay: 0.5s;
+    }
+
+  
+    @keyframes pulseButton {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse-animation {
+      animation: pulseButton 2s infinite;
+    }
+	 .tiger-image {
+	      width: 90%; 
+	      display: block; 
+	      margin: 20px auto;
+	    }
+  </style>
+  <script>
+	  $(document).ready(function(){
+	    
+	      $(".tiger-image").attr("src", "yinru.png");
+	
+	 
+	      $(".option-box").hover(function(){
+	        $(this).css("background-color", "rgba(255, 255, 255, 0.9)");
+	        }, function(){
+	        $(this).css("background-color", "rgba(255, 255, 255, 0.7)");
+	      });
+	
+	      // 点击按钮时添加动画效果
+	      $(".button-icon").click(function(){
+	        $(this).addClass("pulse-animation");
+	      });
+	
+	    });
+	// 函数处理按钮点击事件并跳转到相应页面
+	function navigateToPage(page) {
+	  window.location.href = page;
+	}
+  </script>
+</head>
+<body>
+  <div class="container">
+
+    <h1>雪虎指南</h1>
+    <div class="options-container">
+      <div class="option-box fade-in-animation" onclick="navigateToPage('jieshao.html')">雪虎介绍</div>
+      <div class="option-box fade-in-animation">
+              <a href="https://brightjjz.github.io/bug-free-winner/" target="_blank" style="color: inherit; text-decoration: none;">雪虎濒危信息</a>
+            </div>
+            <div class="option-box fade-in-animation" onclick="navigateToPage('liaojie.html')">了解更多</div>
+          </div>
+      	<img src="yinru.png" class="tiger-image">
+        </div>
+</body>
+</html>
+
